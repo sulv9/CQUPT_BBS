@@ -2,12 +2,47 @@
 {% load static %}
 
 {% block head %}
-    <link rel="stylesheet" href="{% static 'css/homeStyle.css' %}" >
+<link rel="stylesheet" href="{% static 'css/home-style.css' %}">
 {% endblock head %}
 
 {% block content %}
+<div class="article-list">
+    {% for article in articles %}
+    <div class="article">
+        <div class="article-top">
+            <img class="avatar" src="{% static 'img/avatar{{ artilce.user.account.avatar }}.png' %}" />
+            <a href="{% url 'user:userHome' article.user.username %}">
+                <p>{{ article.user.username }}</p>
+            </a>
+            <p>{{ article.pub_time|date:'M d, Y H:i' }}</p>
+        </div>
+        <div class="article-content">
+            <a href="{% url 'home:article' article.id %}">
+                <h2>{{ article.title }}</h2>
+                <p>{{ article.short|linebreaks }}</p>
+            </a>
+            <a href="{% url 'home:topic' article.topic.id %}">
+                <div class="article-topic">{{ article.topic }}</div>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock content %}
 
+{% block right-sidebar %}
+<div class="sidebar-topics">
+    <h2 style="padding-bottom: 16px;">Recommended topics</h2>
+    <div class="sidebar-topics-content">
+        {% for topic in topics %}
+        <a href="{% url 'home:topic' topic.id %}">
+            <div class="topic-container">{{ topic }}</div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock right-sidebar %}
+
 {% block js %}
-    <script src="{% static 'js/homeJs.js' %}"></script>
+<script src="{% static 'js/home-js.js' %}"></script>
 {% endblock js %}
