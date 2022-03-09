@@ -1,1 +1,7 @@
+<<<<<<< HEAD
+bbs/home/__pycache__/urls.cpython-36.pyc
 *.pyc
+bbs/bbs/__pycache__/settings.cpython-38.pyc
+=======
+*.pyc
+>>>>>>> b78de72eb2f9d273799cec6582fef8fac4235eb9
