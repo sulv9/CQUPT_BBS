@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重邮小论坛 - CQUPT_BBS</title>
+    <link rel="stylesheet" href="{% static 'css/base_css.css' %}" />
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    {% block head %}{% endblock head %}
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="nav-bar">
+                <div class="top-sidebar">
+                </div>
+                <div class="left-sidebar">
+                    <a href="https://www.cqupt.edu.cn/" target="_blank">
+                        <img class="img-logo" src="{% static 'img/logo.png' %}" alt="重庆邮电大学官网" />
+                    </a>
+                    <div class="center-nav">
+                        <div class="nav-home">
+                            <a href="/">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="#000000"
+                                    class="bi bi-house-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+                                    <path fill-rule="evenodd"
+                                        d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="nav-write">
+                            <a href="write/index.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="#808080"
+                                    class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                    <path
+                                        d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                    <path fill-rule="evenodd"
+                                        d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bottom-nav">
+                        <a href="user/login.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#808080"
+                                class="bi bi-person-circle" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                                <path fill-rule="evenodd"
+                                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="right-sidebar">
+                    <div class="right-sidebar-content">
+                        <div class="search">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="rgba(8, 8, 8, 1)"
+                                class="bi bi-search search-svg" viewBox="0 0 16 16">
+                                <path
+                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                            </svg>
+                            <input class="search-inp" role="combobox" aria-controls="searchResults"
+                                aria-expanded="false" aria-label="search" tabindex="0" placeholder="Search" value="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% block content %}{% endblock content %}
+    {% block js %}{% endblock js %}
+</body>
+
+</html>
