@@ -1,5 +1,3 @@
-from operator import mod
-from socketserver import DatagramRequestHandler
 from urllib.request import AbstractDigestAuthHandler
 from xml.dom.pulldom import SAX2DOM
 from django.db import models
@@ -25,4 +23,5 @@ class Article(models.Model):
 
 
 class Account(models.Model):
-    user =  User('')
+    user =  models.OneToOneField(User,on_delete=models.CASCADE,related_name="extends")
+    gender = models.CharField(max_length=10,verbose_name="性别")
