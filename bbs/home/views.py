@@ -3,9 +3,6 @@ from user.models import Topic, Article
 
 # Create your views here.
 def home(request):
-<<<<<<< HEAD
-    return render(request, 'home/home.html')
-=======
     topics = Topic.objects.order_by('pub_time')[:7]
     articles = Article.objects.order_by('pub_time')
     context = {'topics': topics, 'articles': articles}
@@ -21,4 +18,3 @@ def topic(request, topic_id):
     articles = topic.article_set.order_by('-pub_time')
     context = {'topic': topic, 'articles': articles}
     return render(request, 'home/topic.html', context)
->>>>>>> b78de72eb2f9d273799cec6582fef8fac4235eb9
