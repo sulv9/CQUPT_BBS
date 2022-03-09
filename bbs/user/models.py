@@ -1,4 +1,7 @@
 from operator import mod
+from socketserver import DatagramRequestHandler
+from urllib.request import AbstractDigestAuthHandler
+from xml.dom.pulldom import SAX2DOM
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -19,3 +22,7 @@ class Article(models.Model):
 
     def _str_(self):
         return self.title
+
+
+class Account(models.Model):
+    user =  User('')
