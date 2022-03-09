@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 from django.contrib.auth import authenticate,login
 from django.http import HttpResponse
@@ -26,3 +27,14 @@ def loginHTML(request):
 #         # print(request.POST['username')
 #         print('This is POST')
 #         return HttpResponse('post is ok')
+=======
+from multiprocessing import context
+from django.shortcuts import render
+from django.contrib.auth.models import User
+
+# Create your views here.
+def userHome(request, user_name):
+    user = User.objects.get(username=user_name)
+    context = {'user': user}
+    return render(request, 'user/user.html', context)
+>>>>>>> b78de72eb2f9d273799cec6582fef8fac4235eb9

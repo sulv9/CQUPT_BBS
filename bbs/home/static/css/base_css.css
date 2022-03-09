@@ -9,6 +9,7 @@ body {
     flex-direction: row;
     align-items: center;
     padding: 4px;
+    margin-top: 30px;
 }
 
 .search .search-inp {
@@ -71,11 +72,6 @@ body {
         right: 0;
         padding: 0 32px;
         border-left: 1px solid rgba(230, 230, 230, 1);
-    }
-
-    .right-sidebar .right-sidebar-content {
-        height: 100vh;
-        margin-top: 30px;
     }
 }
 
