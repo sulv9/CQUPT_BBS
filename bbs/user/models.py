@@ -9,4 +9,4 @@ from django.db.models.signals import post_save
 
 class Account(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,related_name='extended')
-    gender = models.CharField('')
+    gender = models.CharField('',max_length=10)
