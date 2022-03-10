@@ -29,7 +29,7 @@ body {
     width: 300px;
 }
 
-@media screen and (min-width: 1080px) {
+/* @media screen and (min-width: 1080px) { */
     .top-sidebar {
         display: none;
     }
@@ -73,14 +73,14 @@ body {
         padding: 0 32px;
         border-left: 1px solid rgba(230, 230, 230, 1);
     }
-}
+/* } */
 
 @media screen and (max-width: 1239.98px) {
     .right-sidebar {
         width: 200px;
     }
 }
-
+/*
 @media screen and (max-width: 1079.98px) {
     .left-sidebar {
         display: none;
@@ -89,4 +89,4 @@ body {
     .right-sidebar {
         display: none;
     }
-}
+} */
