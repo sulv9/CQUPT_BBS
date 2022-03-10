@@ -38,7 +38,11 @@ a {
     margin: 7px 7px 6px 8px;
 }
 
+<<<<<<< HEAD
 @media screen and (min-width: 960px) {
+=======
+/* @media screen and (min-width: 1080px) { */
+>>>>>>> fyx
     .top-sidebar {
         display: none;
     }
@@ -87,9 +91,19 @@ a {
         padding: 0 32px;
         border-left: 1px solid rgba(230, 230, 230, 1);
     }
-}
+/* } */
 
+<<<<<<< HEAD
 @media screen and (max-width: 959.98px) {
+=======
+@media screen and (max-width: 1239.98px) {
+    .right-sidebar {
+        width: 200px;
+    }
+}
+/*
+@media screen and (max-width: 1079.98px) {
+>>>>>>> fyx
     .left-sidebar {
         display: none;
     }
@@ -97,4 +111,4 @@ a {
     .right-sidebar {
         display: none;
     }
-}
+} */

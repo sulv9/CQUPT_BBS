@@ -1,12 +1,19 @@
-from django.shortcuts import render
+#  Models and Redircet
+
+from django.shortcuts import render,redirect
 from user.models import Topic, Article
 
-# Create your views here.
-def home(request):
+# Http
+from django.http import HttpRequest,HttpResponse
+
+
+# Home Views
+def home(request:HttpRequest):
     topics = Topic.objects.order_by('pub_time')[:7]
     articles = Article.objects.order_by('pub_time')
     context = {'topics': topics, 'articles': articles}
     return render(request, 'home/home.html', context)
+
 
 def article(request, article_id):
     article = Article.objects.get(id=article_id)

@@ -1,6 +1,5 @@
 
 # 基础模型
-from tabnanny import verbose
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -24,12 +23,16 @@ class Account(models.Model):
     user = models.OneToOneField(
         User, on_delete=models.CASCADE,related_name='Account')
     # 头像
-    avatar = models.ImageField(upload_to='avatar')
+    avatar = models.CharField(max_length=200,
+                              default=r"https://s3.bmp.ovh/imgs/2022/03/5524b1bf3e53ec04.jpg"
+                              )
     # 性别
     gender = models.CharField(max_length=5, verbose_name='Gender')
 
     def __str__(self) -> str:
         return "%s"%(self.user.username)
+
+
 
 class Topic(models.Model):
     """
