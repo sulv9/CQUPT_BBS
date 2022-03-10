@@ -104,37 +104,36 @@
                 <div class="slider-tab"></div>
             </div>
             <div class="form-inner">
-                <form action="#" class="login">
+                <form action="/user/" class="login" method='POST'>
+                    {% csrf_token %}
                     <div class="field">
-                        <input type="text" placeholder="Email Address" required>
+                        <input type="text" name="userName" placeholder="UserName" required>
                     </div>
                     <div class="field">
-                        <input type="password" placeholder="Password" required>
+                        <input type="password" name="passWord" placeholder="Password" required>
                     </div>
                     <div class="pass-link">
                         <a href="#">Forgot password?</a>
                     </div>
                     <div class="field btn">
                         <div class="btn-layer"></div>
-                        <input type="submit" value="Login">
+                        <input type="submit" name="signFlag" value="Login">
                     </div>
                     <div class="signup-link">
                         Not a member? <a href="">Signup now</a>
                     </div>
                 </form>
-                <form action="#" class="signup">
+                <form action="/user/" class="signup" method="POST">
+                    {% csrf_token %}
                     <div class="field">
-                        <input type="text" placeholder="Email Address" required>
+                        <input type="text" name="userName" placeholder="UserName" required>
                     </div>
                     <div class="field">
-                        <input type="password" placeholder="Password" required>
-                    </div>
-                    <div class="field">
-                        <input type="password" placeholder="Confirm password" required>
+                        <input type="password" name="passWord" placeholder="Password" required>
                     </div>
                     <div class="field btn">
                         <div class="btn-layer"></div>
-                        <input type="submit" value="Signup">
+                        <input type="submit" name="signFlag" value="SignUp">
                     </div>
                 </form>
             </div>

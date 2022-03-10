@@ -5,5 +5,5 @@ app_name = 'home'
 urlpatterns = [
     path('', views.home, name='home'),
     path('article/<int:article_id>/', views.article, name='article'),
-    path('topic/<int:topic_id>', views.topic, name="topic")
+    path('topic/<int:topic_id>', views.topic, name="topic"),
 ]

@@ -12,19 +12,17 @@ def loginCheck(userForm:dict):
         return False
     if len(userForm['passWord'])>30 or len(userForm['passWord'])==0:
         return False
+
+    # 按理说还应该用正则匹配验证输入是否含特殊字符以免构造任意代码执行
     return True
 
 
 def loginHTML(request:HttpRequest):
-    if request.method == 'GET':
-        return render(request,'login.html')
-
     if request.method =='POST':
         userForm = request.POST.dict()
         if not loginCheck(userForm=userForm):
             # 此处修改成动态界面,暂且忽视
             return HttpResponse('输入表单不正确')
-
         # 登录逻辑
         if userForm['signFlag']=="Login":
             user = authenticate(request,
@@ -32,7 +30,7 @@ def loginHTML(request:HttpRequest):
                                 password=userForm['passWord'])
             if user is not None:
                 login(request,user)
-                return redirect('/user')
+                return redirect('/')
             else:
                 # 不存在用户的处理,暂且忽视
                 return HttpResponse('不存在此用户')
@@ -43,14 +41,5 @@ def loginHTML(request:HttpRequest):
                 password = userForm['passWord']
             )
             user.save()
-            return redirect('/user')
-
-
-        # userName = request.POST['username']
-        # password = request.POST['password']
-        # user = authenticate(request,username=userName,password=password)
-        # if user is not None:
-        #     login(request,user)
-        #     return redirect('/user')
-        # else:
-        #     return HttpResponse('Not a user')
+            return redirect('/')
+    return HttpResponse('Not Vaild')
