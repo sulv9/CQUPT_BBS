@@ -1,0 +1,52 @@
+.sidebar-avatar {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+}
+
+.sidebar-username {
+    font-size: 16px;
+    margin-top: 12px;
+}
+
+.article {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 56px 42px;
+}
+
+.article-top {
+    display: flex;
+}
+
+.article-top img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+.article-top-username {
+    font-size: 16px;
+    color: rgba(41, 41, 41, 1);
+}
+
+.article-top-bottom {
+    display: flex;
+}
+
+.article-top-bottom p {
+    color: rgba(117, 117, 117, 1);
+    font-size: 14px;
+}
+
+.article-pub-time {
+    margin-right: 6px;
+}
+
+.article-center h1 {
+    margin-top: 28px;
+    margin-bottom: 28px;
+}

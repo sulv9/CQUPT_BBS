@@ -1,5 +1,17 @@
 body {
     margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100vh;
 }
 
 .search {
@@ -9,7 +21,8 @@ body {
     flex-direction: row;
     align-items: center;
     padding: 4px;
-    margin-top: 30px;
+    margin-top: 36px;
+    margin-bottom: 28px;
 }
 
 .search .search-inp {
@@ -22,66 +35,61 @@ body {
 }
 
 .search .search-svg {
-    padding: 7px 7px 6px 8px;
+    margin: 7px 7px 6px 8px;
 }
 
-.right-sidebar {
-    width: 300px;
-}
-
-@media screen and (min-width: 1080px) {
+@media screen and (min-width: 960px) {
     .top-sidebar {
         display: none;
     }
 
+    .left-sidebar-container {
+        width: 80px;
+        min-height: 100vh;
+    }
+
     .left-sidebar {
-        position: fixed;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
+        position: sticky;
         height: 100vh;
-        width: 80px;
         border-right: 1px solid rgba(230, 230, 230, 1);
+        z-index: 1;
     }
 
-    .left-sidebar .img-logo {
+    .img-logo {
         width: 38px;
         height: 38px;
-        margin-top: 20px;
+        margin: 0px 24px;
+        margin-top: 42px;
     }
 
-    .left-sidebar .center-nav {
+    .center-nav {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
 
-    .left-sidebar .center-nav .nav-home {
+    .center-nav .nav-home {
         margin-bottom: 25px;
     }
 
-    .left-sidebar .bottom-nav {
+    .bottom-nav {
         padding-bottom: 20px;
     }
 
     .right-sidebar {
+        width: 480px;
         min-height: 100vh;
-        position: fixed;
-        right: 0;
         padding: 0 32px;
         border-left: 1px solid rgba(230, 230, 230, 1);
     }
 }
 
-@media screen and (max-width: 1239.98px) {
-    .right-sidebar {
-        width: 200px;
-    }
-}
-
-@media screen and (max-width: 1079.98px) {
+@media screen and (max-width: 959.98px) {
     .left-sidebar {
         display: none;
     }

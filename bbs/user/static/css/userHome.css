@@ -1,3 +1,14 @@
+.sidebar-avatar {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+}
+
+.sidebar-username {
+    font-size: 16px;
+    margin-top: 12px;
+}
+
 .article-list {
     width: 100vh;
     display: flex;
@@ -17,19 +28,6 @@
 .article-top {
     display: flex;
     align-items: center;
-}
-
-.article-top img {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-}
-
-.article-top a {
-    margin-left: 12px;
-    color: rgba(41, 41, 41, 1);
-    margin-right: 6px;
-    font-size: 14px;
 }
 
 .article-pub-time {
@@ -80,27 +78,4 @@
     color: rgba(117, 117, 117, 1);
     font-weight: 400;
     margin-left: 12px;
-}
-
-.sidebar-topics-title {
-    padding-bottom: 16px; 
-    font-size: 16px;
-}
-
-.sidebar-topics-content {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-}
-
-.topic-container {
-    padding: 8px 16px;
-    line-height: 20px;
-    font-size: 14px;
-    background-color: rgba(242, 242, 242, 1);
-    border-radius: 100px;
-    color: rgba(41, 41, 41, 1);
-    font-weight: 400;
-    margin-right: 8px;
-    margin-bottom: 8px;
 }

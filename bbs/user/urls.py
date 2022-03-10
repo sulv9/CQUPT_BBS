@@ -1,7 +1,7 @@
-from django.urls import path, include
+from django.urls import path
 from . import views
+
 app_name = 'user'
 urlpatterns = [
-    # path('', include('django.contrib.auth.urls'))
-    path('',views.loginHTML)
+    path('<int:user_id>/', views.userHome, name='userHome')
 ]

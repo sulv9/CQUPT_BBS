@@ -1,1 +1,35 @@
 {% extends "home/base.html" %}
+{% load static %}
+
+{% block title %}{{ cur_user.username }} - CQUPT_BBS{% endblock title %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/userHome.css' %}">
+{% endblock head %}
+
+{% block content %}
+<div class="article-list">
+    {% for article in articles %}
+    <div class="article">
+        <div class="article-top">
+            <p class="article-pub-time">{{ article.pub_time|date:'M d, Y H:i' }}</p>
+        </div>
+        <a class="article-center" href="{% url 'home:article' article.id %}">
+            <h2>{{ article.title }}</h2>
+            <p>{{ article }}</p>
+        </a>
+        <div class="article-bottom">
+            <a href="{% url 'home:topic' article.topic.id %}">{{ article.topic }}</a>
+            <p>{{ article.read_time }} min read</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
+
+{% block right-sidebar %}
+<div class="sidebar">
+    <img class="sidebar-avatar" src="https://s3.bmp.ovh/imgs/2022/03/5524b1bf3e53ec04.jpg" />
+    <h2 class="sidebar-username">{{ cur_user.username }}</h2>
+</div>
+{% endblock right-sidebar %}

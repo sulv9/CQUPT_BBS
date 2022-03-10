@@ -1,3 +1,4 @@
+from multiprocessing import context
 from django.contrib.auth import authenticate, login
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
@@ -5,6 +6,7 @@ from django.shortcuts import redirect, render
 # from django.dispatch import receiver
 from django.contrib.auth.models import User
 
+from .models import Article
 
 # 检查输入函数
 def loginCheck(userForm:dict):
@@ -45,12 +47,9 @@ def loginHTML(request:HttpRequest):
             user.save()
             return redirect('/user')
 
-
-        # userName = request.POST['username']
-        # password = request.POST['password']
-        # user = authenticate(request,username=userName,password=password)
-        # if user is not None:
-        #     login(request,user)
-        #     return redirect('/user')
-        # else:
-        #     return HttpResponse('Not a user')
+def userHome(request, user_id):
+    cur_user = User.objects.get(id=user_id)
+    account = cur_user.Account
+    articles = Article.objects.filter(owner=account)
+    context = {'cur_user': cur_user, 'account': account, 'articles': articles}
+    return render(request, 'user/user.html', context)
