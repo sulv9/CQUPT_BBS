@@ -1,21 +1,13 @@
-<<<<<<< HEAD
-from multiprocessing import context
-from django.contrib.auth import authenticate, login
-=======
 from random import random
 from django.contrib.auth import authenticate, login ,logout
->>>>>>> fyx
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
 # from django.db.models.signals import post_save
 # from django.dispatch import receiver
 from django.contrib.auth.models import User
-<<<<<<< HEAD
 
 from .models import Article
-=======
 import random
->>>>>>> fyx
 
 # 检查输入函数
 
@@ -74,14 +66,12 @@ def loginHTML(request: HttpRequest):
     return HttpResponse('Not Vaild')
 
 
-<<<<<<< HEAD
 def userHome(request, user_id):
     cur_user = User.objects.get(id=user_id)
     account = cur_user.Account
     articles = Article.objects.filter(owner=account)
     context = {'cur_user': cur_user, 'account': account, 'articles': articles}
     return render(request, 'user/user.html', context)
-=======
 
 def logOut(request:HttpRequest):
     if request.user.is_authenticated:
@@ -89,4 +79,3 @@ def logOut(request:HttpRequest):
         return redirect('/')
     else:
         return HttpResponse("您的账户并未登录")
->>>>>>> fyx
