@@ -8,8 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title%}{% endblock title %} - CQUPT_BBS</title>
     <link rel="stylesheet" href="{% static 'css/base_css.css' %}" />
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-    <script src="{% static 'js/jquery.min.js' %}"></script>
     <!-- modal - icon - css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
@@ -18,14 +16,17 @@
 </head>
 
 <body>
+    <!-- Main Container -->
     <div class="container">
-        <div class="top-sidebar">
-        </div>
+        <!-- Top Bar -->
+        <div class="top-sidebar"></div>
+        <!-- Left Bar -->
         <div class="left-sidebar-container">
             <div id="left-sidebar-id" class="left-sidebar">
                 <a href="https://www.cqupt.edu.cn/" target="_blank">
                     <img class="img-logo" src="{% static 'img/logo.png' %}" alt="重庆邮电大学官网" />
                 </a>
+                <!-- Home Icon -->
                 <div class="center-nav">
                     <div class="nav-home">
                         <a href="/">
@@ -38,6 +39,7 @@
                             </svg>
                         </a>
                     </div>
+                    <!-- Write Icon -->
                     <div class="nav-write">
                         <a href="write/index.html">
                             <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="#808080"
@@ -50,6 +52,7 @@
                         </a>
                     </div>
                 </div>
+                <!-- Bottom Icon need fixed  -->
                 <div class="bottom-nav">
                     <a class="view-modal" style="cursor: pointer;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#808080"
@@ -64,6 +67,7 @@
             </div>
         </div>
         {% block content %}{% endblock content %}
+        <!-- right Icon  -->
         <div class="right-sidebar">
             <div class="search">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="rgba(8, 8, 8, 1)"
