@@ -1,1 +1,37 @@
 {% extends "home/base.html" %}
+{% load static %}
+
+{% block title %}{{ article.title }} - CQUPT_BBS{% endblock title %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/article-style.css' %}">
+{% endblock head %}
+
+{% block content %}
+<div class="article">
+    <div class="article-content">
+        <div class="article-top">
+            <img src="https://s3.bmp.ovh/imgs/2022/03/5524b1bf3e53ec04.jpg" />
+            <div>
+                <a class="article-top-username"
+                    href="{% url 'user:userHome' article.owner.id %}">{{ article.owner.user.username }}</a>
+                <div class="article-top-bottom">
+                    <p class="article-pub-time">{{ article.pub_time|date:'M d, Y H:i' }}</p>
+                    <p>· {{ article.read_time }} min read</p>
+                </div>
+            </div>
+        </div>
+        <div class="article-center">
+            <h1>{{ article.title }}</h1>
+            <p>{{ article.content|linebreaks }}</p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block right-sidebar %}
+<div class="sidebar">
+    <img class="sidebar-avatar" src="https://s3.bmp.ovh/imgs/2022/03/5524b1bf3e53ec04.jpg" />
+    <h2 class="sidebar-username">{{ article.owner.user.username }}</h2>
+</div>
+{% endblock right-sidebar %}

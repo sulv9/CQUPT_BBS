@@ -10,9 +10,6 @@ from django.db.models.signals import post_save
 # Models
 from django.conf import settings
 
-
-
-
 class Account(models.Model):
     """
     Account Model:
@@ -50,8 +47,6 @@ class Topic(models.Model):
     def __str__(self):
         return self.title
 
-
-
 class Article(models.Model):
     """
     Article Model:
@@ -64,12 +59,14 @@ class Article(models.Model):
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     content = models.TextField()
-    # short = content[:40] + '...'
     pub_time = models.DateTimeField(auto_now_add=True)
     owner = models.ForeignKey(Account, on_delete=models.CASCADE)
 
+    def read_time(self):
+        return int(len(self.content) / 350)
+
     def __str__(self):
-        return self.title
+        return self.content[:100] + '...'
 
 @receiver(post_save,sender=User)
 def creatAccount(sender,instance,created,**kwargs):
