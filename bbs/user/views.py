@@ -1,5 +1,5 @@
 from random import random
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login ,logout
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
 # from django.db.models.signals import post_save
@@ -62,3 +62,12 @@ def loginHTML(request: HttpRequest):
             user.save()
             return redirect('/')
     return HttpResponse('Not Vaild')
+
+
+
+def logOut(request:HttpRequest):
+    if request.user.is_authenticated:
+        logout(request)
+        return redirect('/')
+    else:
+        return HttpResponse("您的账户并未登录")
