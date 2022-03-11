@@ -6,6 +6,7 @@ from django.shortcuts import redirect, render
 # from django.dispatch import receiver
 from django.contrib.auth.models import User
 
+
 from .models import Article
 import random
 
@@ -40,30 +41,33 @@ def loginHTML(request: HttpRequest):
                 # 不存在用户的处理,暂且忽视
                 return redirect("loginError")
         elif request.POST['signFlag'] == "SignUp":
-            # 此处应是注册逻辑
-            user = User.objects.create_user(
-                username=userForm['userName'],
-                password=userForm['passWord']
-            )
-            """
-                0. 可爱老鼠
-                1. 可爱No嘉然
-                2. 原来如此嘉然
-                3. 180嘉然
-                4. 哭泣嘉然
-                5. 聪明蛋嘉然
-            """
-            imgs = [r"https://s3.bmp.ovh/imgs/2022/03/5524b1bf3e53ec04.jpg",
-                    r"https://s3.bmp.ovh/imgs/2022/03/62120fa42489d562.png",
-                    r"https://s3.bmp.ovh/imgs/2022/03/013ab8afeaa0a57c.png",
-                    r"https://s3.bmp.ovh/imgs/2022/03/67ca7fdeb8ee3e03.png",
-                    r"https://s3.bmp.ovh/imgs/2022/03/c57b5e822c5c2048.png",
-                    r"https://s3.bmp.ovh/imgs/2022/03/17461a3276e3da3a.png",
-                    ]
-            user.Account.avatar = random.choice(imgs)
-            user.save()
-            return redirect('/')
-    return HttpResponse('Not Vaild')
+            try:
+                # 此处应是注册逻辑
+                user = User.objects.create_user(
+                    username=userForm['userName'],
+                    password=userForm['passWord']
+                )
+                """
+                    0. 可爱老鼠
+                    1. 可爱No嘉然
+                    2. 原来如此嘉然
+                    3. 180嘉然
+                    4. 哭泣嘉然
+                    5. 聪明蛋嘉然
+                """
+                imgs = [r"https://s3.bmp.ovh/imgs/2022/03/5524b1bf3e53ec04.jpg",
+                        r"https://s3.bmp.ovh/imgs/2022/03/62120fa42489d562.png",
+                        r"https://s3.bmp.ovh/imgs/2022/03/013ab8afeaa0a57c.png",
+                        r"https://s3.bmp.ovh/imgs/2022/03/67ca7fdeb8ee3e03.png",
+                        r"https://s3.bmp.ovh/imgs/2022/03/c57b5e822c5c2048.png",
+                        r"https://s3.bmp.ovh/imgs/2022/03/17461a3276e3da3a.png",
+                        ]
+                user.Account.avatar = random.choice(imgs)
+                user.save()
+                return redirect('/')
+            except:
+                return redirect('/signUpError')
+    return redirect('/signOutError')
 
 
 def userHome(request, user_id):

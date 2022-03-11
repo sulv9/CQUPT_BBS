@@ -8,4 +8,5 @@ urlpatterns = [
     path('topic/<int:topic_id>', views.topic, name="topic"),
     path('loginError',views.loginError),
     path('signOutError',views.signOutError),
+    path('signUpError',views.signUpError),
 ]

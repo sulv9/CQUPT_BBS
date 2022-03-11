@@ -38,3 +38,9 @@ def signOutError(request):
     articles = Article.objects.order_by('pub_time')
     context = {'topics': topics, 'articles': articles}
     return render(request,'home/out.html',context)
+
+def signUpError(request):
+    topics = Topic.objects.order_by('pub_time')[:7]
+    articles = Article.objects.order_by('pub_time')
+    context = {'topics': topics, 'articles': articles}
+    return render(request,'home/signup.html',context)
