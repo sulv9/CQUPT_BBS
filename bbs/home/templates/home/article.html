@@ -11,7 +11,7 @@
 <div class="article">
     <div class="article-content">
         <div class="article-top">
-            <img src="https://s3.bmp.ovh/imgs/2022/03/5524b1bf3e53ec04.jpg" />
+            <img src="{{article.owner.avatar}}" />
             <div>
                 <a class="article-top-username"
                     href="{% url 'user:userHome' article.owner.id %}">{{ article.owner.user.username }}</a>
@@ -31,7 +31,7 @@
 
 {% block right-sidebar %}
 <div class="sidebar">
-    <img class="sidebar-avatar" src="https://s3.bmp.ovh/imgs/2022/03/5524b1bf3e53ec04.jpg" />
+    <img class="sidebar-avatar" src="{{article.owner.avatar}}" />
     <h2 class="sidebar-username">{{ article.owner.user.username }}</h2>
 </div>
 {% endblock right-sidebar %}
