@@ -27,7 +27,7 @@ def loginHTML(request: HttpRequest):
         userForm = request.POST.dict()
         if not loginCheck(userForm=userForm):
             # 此处修改成动态界面,暂且忽视
-            return HttpResponse('输入表单不正确')
+            return redirect("loginError")
         # 登录逻辑
         if userForm['signFlag'] == "Login":
             user = authenticate(request,
@@ -38,7 +38,7 @@ def loginHTML(request: HttpRequest):
                 return redirect('/')
             else:
                 # 不存在用户的处理,暂且忽视
-                return HttpResponse('不存在此用户')
+                return redirect("loginError")
         elif request.POST['signFlag'] == "SignUp":
             # 此处应是注册逻辑
             user = User.objects.create_user(
@@ -78,4 +78,4 @@ def logOut(request:HttpRequest):
         logout(request)
         return redirect('/')
     else:
-        return HttpResponse("您的账户并未登录")
+        return redirect('/signOutError')

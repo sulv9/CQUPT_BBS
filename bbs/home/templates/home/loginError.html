@@ -1,0 +1,48 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block title %}重邮小论坛{% endblock title %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/home-style.css' %}">
+{% endblock head %}
+
+{% block content %}
+<div class="article-list">
+    {% for article in articles %}
+    <div class="article">
+        <div class="article-top">
+            <img class="avatar" src="https://s3.bmp.ovh/imgs/2022/03/5524b1bf3e53ec04.jpg" />
+            <a href="{% url 'user:userHome' article.owner.id %}">{{ article.owner.user.username }}</a>
+            <p class="article-pub-time">·  {{ article.pub_time|date:'M d, Y H:i' }}</p>
+        </div>
+        <a class="article-center" href="{% url 'home:article' article.id %}">
+            <h2>{{ article.title }}</h2>
+            <p>{{ article }}</p>
+        </a>
+        <div class="article-bottom">
+            <a href="{% url 'home:topic' article.topic.id %}">{{ article.topic }}</a>
+            <p>{{ article.read_time }} min read</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
+
+{% block right-sidebar %}
+<div class="sidebar-topics">
+    <h2 class="sidebar-topics-title">Recommended topics</h2>
+    <div class="sidebar-topics-content">
+        {% for topic in topics %}
+        <a class="topic-container" href="{% url 'home:topic' topic.id %}">{{ topic }}</a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock right-sidebar %}
+
+{% block js %}
+<script src="{% static 'js/home-js.js' %}"></script>
+<script>
+    alert("用户名或账户密码不对")
+</script>
+{% endblock js %}
