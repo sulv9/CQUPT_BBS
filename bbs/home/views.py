@@ -25,3 +25,22 @@ def topic(request, topic_id):
     articles = topic.article_set.order_by('-pub_time')
     context = {'topic': topic, 'articles': articles}
     return render(request, 'home/topic.html', context)
+
+
+def loginError(request):
+    topics = Topic.objects.order_by('pub_time')[:7]
+    articles = Article.objects.order_by('pub_time')
+    context = {'topics': topics, 'articles': articles}
+    return render(request,'home/loginError.html',context)
+
+def signOutError(request):
+    topics = Topic.objects.order_by('pub_time')[:7]
+    articles = Article.objects.order_by('pub_time')
+    context = {'topics': topics, 'articles': articles}
+    return render(request,'home/out.html',context)
+
+def signUpError(request):
+    topics = Topic.objects.order_by('pub_time')[:7]
+    articles = Article.objects.order_by('pub_time')
+    context = {'topics': topics, 'articles': articles}
+    return render(request,'home/signup.html',context)
